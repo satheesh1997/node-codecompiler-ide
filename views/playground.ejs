@@ -1,0 +1,111 @@
+<% include layouts/header %>
+    <% include layouts/navbar %>
+    <div class="preloader" style="position: fixed;height:100vh;z-index:9999; background:rebeccapurple; width:180ch;display:none;">
+        <h1 class="text-center" style="color:white;margin-top:290px;"><i class="glyphicon glyphicon-time"></i></h1>
+    </div>
+    <div class="container-fluid top-2">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="panel panel-default">
+                      <div class="panel-heading" style="height:55px">
+                            <div class="col-lg-6 col-sm-6 col-md-6 text-left">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown">
+                                        Choose a theme
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation" class="dropdown-header">Themes Available</li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_theme(1)">Ambiance</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_theme(2)">Chaos</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_theme(3)">Chrome</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_theme(4)">Clouds</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_theme(5)">Clouds Midnight</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-md-6 text-right">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                        Select a programming language
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation" class="dropdown-header">Languages Available</li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_c()">C</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_cpp()">C++</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_java()">JAVA</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" onclick="load_py()">PYTHON3.5</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                      </div>
+                      <div class="panel-body" id="editor"></div>
+                        <div class="panel-footer text-right" style="padding:10px;">
+                            <div class="btn-group">
+                                <a class="btn btn-danger"vrole="button" onclick="myCode()"><i class="glyphicon glyphicon-refresh"></i> RESET</a>
+                                <a class="btn btn-primary" role="button" onclick="saveProgram()" id="save_pg_btn"><i class="glyphicon glyphicon-cloud-upload"></i> SAVE</a>
+                                <a class="btn btn-success" role="button" onclick="submit_code()"><i class="glyphicon glyphicon-play"></i> COMPILE</a>
+                            </div>
+                      </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-4">
+                <h3 class="text-center white_head">TEST CASES</h3>
+                <div class="row" style="padding-bottom: 10px; border-bottom:2px dashed white;">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="comment" class="white_label">Input-1:</label>
+                            <textarea class="form-control" rows="5" id="testcase_1"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment" class="white_label">Output-1:</label>
+                            <textarea class="form-control" rows="5" id="o_1"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label for="comment" class="white_label">Input-2:</label>
+                            <textarea class="form-control" rows="5" id="testcase_2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment" class="white_label">Output-2:</label>
+                            <textarea class="form-control" rows="5" id="o_2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top:20px">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="alert alert-success" style="display: none;" id="out_1_box">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Result-1: <br></strong> <span id="out_1"></span>
+                        </div>
+                        <div class="alert alert-danger" style="display:none;" id="error_box_2">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Runtime Error:<br></strong> <span id="error_msg_2" style="font-family: monospace !important;word-wrap:break-word;"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="alert alert-success" style="display: none;" id="out_2_box">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Result-2: <br></strong> <span id="out_2"></span>
+                        </div>
+                        <div class="alert alert-danger" style="display:none;" id="error_box_3">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Runtime Error:<br></strong> <span id="error_msg_3" style="font-family: monospace !important;word-wrap:break-word;"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin-top:20px;">
+                    <div class="alert alert-danger" style="display:none;" id="error_box">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Compilation Error:<br></strong> <span id="error_msg_1" style="font-family: monospace !important;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% include layouts/javascripts %>
+<% include layouts/play-js %>
+<% include layouts/footer %>

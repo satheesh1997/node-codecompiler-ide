@@ -1,0 +1,98 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" style="font-weight:bold;color:white;"><%= site.title %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/" style="color:white;"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+            <li><a href="/playground" style="color:white;"><i class="glyphicon glyphicon-console"></i> Playground</a></li>
+            <li><a href="/discuss" style="color:white;"><i class="glyphicon glyphicon-bell"></i> Discuss</a></li>
+            <li><a data-toggle="modal" href="#languages-list" style="color:white;"><i class="glyphicon glyphicon-tasks"></i> Languages</a></li>
+            <li><a data-toggle="modal" href="#dev_team" style="color:white;"><i class="glyphicon glyphicon-fire"></i> Developers</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" style="color:white;"><i class="glyphicon glyphicon-user"></i> <%= user.username %></a></li>
+            <li style="padding-right:20px;"><a href="/accounts/logout" style="color:white;"><i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+<div class="modal fade" id="languages-list">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Languages Available</h4>
+            </div>
+            <div class="modal-body" id="langs">
+                <ul class="list-group" style="border: 0px solid white !important;">
+                    <li class="list-group-item" style="border: 0px solid white !important;" >
+                        <span class="badge">OK</span>
+                        C
+                    </li>
+                    <li class="list-group-item" style="border: 0px solid white !important;">
+                        <span class="badge">OK</span>
+                        C++
+                    </li>
+                    <li class="list-group-item" style="border: 0px solid white !important;">
+                        <span class="badge">OK</span>
+                        JAVA
+                    </li>
+                    <li class="list-group-item" style="border: 0px solid white !important;">
+                        <span class="badge">OK</span>
+                        PYTHON3.5
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="dev_team">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Developers</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-lg-6 col-md-6 text-center">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-center" style="padding: 0;margin: 0;">
+                            <img src="/compiler_components/images/dev_1.jpg" style="width: 250px;height:250px;">
+                        </div>
+                        <div class="panel-footer text-center">
+                            Satheesh Kumar D<br><br>IIICSE-C
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-body text-center" style="padding: 0;margin: 0;">
+                            <img src="/compiler_components/images/dev_2.jpg" style="width: 250px;height:250px;">
+                        </div>
+                        <div class="panel-footer text-center">
+                            Somesh Kumar K<br><br>IIICSE-C
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <p class="text-center">
+                	Contact us for reporting errors or bugs.<br>
+                	Need to join this team-> Meet us.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
