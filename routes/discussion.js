@@ -26,7 +26,6 @@ router.get('/', allowAuthenticated, (req, res, next)=>{
             sendData.status = true
             sendData.discussions = discussions
         }
-        console.log(sendData)
     })
     res.render('discuss_front.ejs', {sendData})
 })

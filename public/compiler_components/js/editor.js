@@ -1,3 +1,14 @@
+/* 
+    Javascript codes that control the client side
+    Playground system.
+
+    Author: Satheesh Kumar D
+    Date: 16-10-2017
+    Project: Offline Code Compiler
+    Organisation: Code Lordz
+
+*/
+
 var language = 1;
 ace.require("ace/ext/language_tools");
 var editor = ace.edit("editor");
