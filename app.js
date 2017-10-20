@@ -1,6 +1,6 @@
 /************************************************************************
 * 
-*    Title: Web Besed Smart Program Compiler
+*    Title: Web Based Smart Program Compiler
 *    Language: Nodejs
 *    Database: Mongoose
 *    Organisation: Code Lordz
@@ -8,6 +8,8 @@
 *    Date: 18-10-2017
 *    Code version: 0.0.1
 *    Git Repository: https://github.com/Code-Lordz/Code_Compiler
+*    Routes: 12
+*    Models: 2
 *    Description: This is a simple web based code compiler that can
 *                 Compile your code and match with the testcases provided.
 *
@@ -75,7 +77,8 @@ app.use((req, res, next)=>{
             title: 'Code Lordz',
             description: 'We provide you the simple web based offline code compiler where you can execute the programs and verify the result.'
         },
-        user: req.user
+        user: req.user,
+        query: req.query
     }
     next()
 })

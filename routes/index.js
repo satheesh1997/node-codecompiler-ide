@@ -10,6 +10,10 @@ function allowAuthenticated(req, res, next){
     res.redirect('/accounts/login')
 }
 
+function getClientIP(req){
+    return req.headers['x-forwarded-for'] || req.connection.remoteAddress
+}
+
 router.get('/', allowAuthenticated, (req, res, next)=>{
     res.render('home')
 })
@@ -28,7 +32,7 @@ router.get('/accounts/login', (req, res, next)=>{
 
 router.post('/accounts/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/accounts/login'
+    failureRedirect: '/accounts/login?errorcode=10&date='+Date()+''
 }))
 
 router.get('/accounts/register', (req, res, next)=>{
