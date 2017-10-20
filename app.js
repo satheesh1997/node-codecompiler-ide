@@ -30,7 +30,7 @@ const port = 3000
 
 //Mongo database connection
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost:27017/onlinecompiler2')
+mongoose.connect('mongodb://localhost:27017/onlinecompiler')
 let db = mongoose.connection
 db.once('open' ,()=>{
     console.log('Connected to MongodB!')
