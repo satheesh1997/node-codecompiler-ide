@@ -1,3 +1,17 @@
+/************************************************************************
+* 
+*    Title: Offline Program Compiler
+*    Language: Nodejs
+*    Organisation: Code Lordz
+*    Author: Satheesh Kumar D
+*    Date: 18-10-2017
+*    Code version: 0.0.1
+*    Git Repository: https://github.com/Code-Lordz/Code_Compiler
+*    Description: This is a simple web based code compiler that can
+*                 Compile your code and match with the testcases provided.
+*
+****************************************************************************/
+
 const express = require('express')
 const session = require('express-session')
 const path = require('path')
@@ -9,7 +23,7 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
-//Init Express
+//Initialize application
 const app = express()
 const port = 3000
 
@@ -53,6 +67,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+//App locals
 app.use((req, res, next)=>{
     res.locals={
         site:{

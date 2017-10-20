@@ -53,7 +53,7 @@ router.post('/saveprogram', (req, res, next)=>{
 
 router.get('/mycode', (req, res, next)=>{
     if(req.isAuthenticated()){
-        playground.findOne({username: '15TUCS215'}, (err, program)=>{
+        playground.findOne({username: req.user.username}, (err, program)=>{
             if(err){
                 res.json({status: false, msg: err})
             }
