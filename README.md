@@ -1,5 +1,5 @@
 *************************************************************************
-* 
+
 *    Title: #Web Based Smart Program Compiler
 *    Language: Nodejs
 *    Database: Mongoose
@@ -10,7 +10,6 @@
 *    Git Repository: https://github.com/Code-Lordz/Code_Compiler
 *    Routes: 12
 *    Models: 2
-*    Description: This is a simple web based code compiler that can
-*                 Compile your code and match with the testcases provided.
-*
+*    Description: This is a simple web based code compiler that can Compile your code and match with the testcases provided.
+
 ***************************************************************************
