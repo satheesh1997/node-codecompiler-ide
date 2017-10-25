@@ -28,7 +28,7 @@ const LocalStrategy = require('passport-local').Strategy
 
 //Initialize application
 const app = express()
-const port = 3000
+const port = 8000
 
 //Mongo database connection
 mongoose.Promise = global.Promise

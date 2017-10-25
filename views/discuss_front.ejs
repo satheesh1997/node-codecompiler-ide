@@ -7,7 +7,7 @@
                     
                     <div class="btn-group">
                         <a class="btn btn-primary" data-toggle="modal" href='#start_thread' role="button">Start thread</a>
-                        <a class="btn btn-success" href="/discuss/my" role="button">My threads</a>
+                        <a class="btn btn-success" onclick="openMyThreads()" role="button">My threads</a>
                     </div>
                     
                 </div>
@@ -18,7 +18,8 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h4 class="modal-title">Start a new discussion :)</h4>
                             </div>
-                            <div class="modal-body">                                                   
+                            <div class="modal-body">
+                                    <p class="text-danger" id="error-msg"></p>                                                   
                                     <div class="form-group">
                                         <input type="text" class="form-control disabled" disabled="disabled" id="author" placeholder="Discussion Author" value="<%=user.username%>" required>
                                     </div>
@@ -43,28 +44,31 @@
                     <strong>Server Error<br><br></strong> Alert body ...
                 </div>
                 <% } else {%>
-                <% if(sendData.discussions == null){ %>                
+                <% if(dis.length == 0){ %>                
                 <div class="alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <strong>Warning!</strong><br><br> No Discussions found on the server. Be the 
                     first to start a discussion by clicking Start thread button.
                 </div>
-                <% } else { %>                        
-                <div class="panel panel-default" style="border-top: 2px solid rebeccapurple;">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">When this page will be avail?</h3>
-                    </div>
-                    <div class="panel-body" style="padding:20px;">
-                        This page is currently under construction. Will be available soon for your use. 
-                        In this page you can post your doubts and get solutions from other students. 
-                    </div>
-                    <div class="panel-footer" style="background: white;">
-                        <div class="text-right">
-                            <a href="">Post a solution</a> | 
-                            <a href="">0 Solutions</a>
+                <% } else { %>
+                    <% dis.forEach((discussion)=> { %>                        
+                        <div class="panel panel-default" style="border-top: 2px solid rebeccapurple;">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><%= discussion.title %></h3>
+                            </div>
+                            <div class="panel-body" style="padding:20px;line-height:30px;">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= discussion.body %> 
+                                    
+                                    <p class="text-right text-primary">- <%= discussion.author %></p>
+                            </div>
+                            <div class="panel-footer" style="background: white;">
+                                <div class="text-right">
+                                    <a href="/discuss/view/<%= discussion._id %>">Post a solution</a> | 
+                                    <a href="/discuss/view/<%= discussion._id %>#solns"><%= discussion.comments.length %> Solutions</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    <% }) %>
                 <% } }%>
             </div>
         </div>

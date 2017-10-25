@@ -21,13 +21,35 @@ router.get('/', allowAuthenticated, (req, res, next)=>{
         if(err){
             sendData.status = false
             sendData.error = 'Error while fetching discussions for the database.<br> Kindly contact the administrator.'
+            res.render('discuss_front.ejs', {sendData})
         }
         else{
             sendData.status = true
-            sendData.discussions = discussions
+            var dis = discussions
+            res.render('discuss_front.ejs', {sendData, dis})
         }
     })
-    res.render('discuss_front.ejs', {sendData})
+})
+
+router.post('/add', allowAuthenticated, (req, res, next)=>{
+    var data = {
+        author: req.user.username,
+        title: req.body.title,
+        body: req.body.body,
+        posted_date: new Date()
+    }
+
+    discuss = new discussion(data)
+
+    discuss.save((err)=>{
+        if(err){
+            res.json({status: false, error: "Error occured while adding discussion!"})
+            console.log(err)
+        }
+        else{
+            res.json({status: true, msg: 'Discussion added successfully!'})
+        }
+    })
 })
 
 module.exports = router
