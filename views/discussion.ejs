@@ -1,0 +1,43 @@
+<% include layouts/header %>
+<% include layouts/navbar %>
+    <div class="container-fluid discuss">
+        <div class="row">
+            <div class="col-lg-6 col-sm-6 col-md-6 column">
+                <% if(sendData.status == false) { %>
+                    <h1 class="text-center text-danger">
+                        The request discussion may be moved or merged.
+                    </h1>
+                    <h3 class="text-center text-warning"><br><br>This page will be reloaded in 1 mins.</h3>
+                    <script type="text/javascript">
+                        function moveToDiscuss(){
+                            window.location = "/discuss";
+                        }
+                        setTimeout(moveToDiscuss, 1600)
+                    </script>
+                <% } else {%>
+                    <h1 class="text-primary"><%= sendData.discussion.title %></h1>
+                    <hr>
+                        <h4 class="text-success" style="line-height:34px;">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <%= sendData.discussion.body %>
+                        </h4>
+                    <hr>
+                    <h5 class="text-grey">
+                        <i class="glyphicon glyphicon-user"></i> <%= sendData.discussion.author %> 
+                        <i class="glyphicon glyphicon-time"></i> <%= sendData.discussion.posted_date %>
+                    </h5>
+                    <hr>
+                    <textarea id="solution" class="form-control" rows="3" required="required" placeholder="Enter your solution here.." discussion="<%= sendData.discussion._id %>"></textarea>
+                    <p class="text-right">
+                        <br>
+                        <button id="submit_soln" type="button" class="btn btn-success btn-sm" disabled>Add Solution</button>
+                    </p>
+                    <h4><br>Solutions:</h4>
+                    <hr align="left" width="10%" />
+                <% } %>
+            </div>
+        </div>
+    </div>
+<% include layouts/javascripts %>
+<% include layouts/discuss-js %>
+<% include layouts/footer %>

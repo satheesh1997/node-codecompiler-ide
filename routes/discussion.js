@@ -31,6 +31,25 @@ router.get('/', allowAuthenticated, (req, res, next)=>{
     })
 })
 
+router.get('/view/:id' ,allowAuthenticated, (req, res, next)=>{
+
+    var sendData = {
+        route: 'Fetch discussion from server!'
+    }
+
+    discussion.findOne({_id: req.params.id}, (err, discussion)=>{
+        if(err){
+            sendData.status = false
+            sendData.error = 'Error while fetching discussion from the database.<br> Kindly contact the administrator!'
+        }
+        else{
+            sendData.status = true
+            sendData.discussion = discussion
+        }
+        return res.render('discussion.ejs', {sendData})
+    })
+})
+
 router.post('/add', allowAuthenticated, (req, res, next)=>{
     var data = {
         author: req.user.username,

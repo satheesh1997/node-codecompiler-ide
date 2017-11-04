@@ -58,6 +58,15 @@ $('document').ready(function(){
             });;
         }
     });
+    $("#solution").keydown(function(){
+        var solution = $("#solution").val();
+        if(solution.length > 10 && solution.length < 200){
+            $("#submit_soln").removeAttr('disabled')
+        }
+        else{
+            $("#submit_soln").attr('disabled', 'disabled');
+        }
+    });
 });
 
 function openMyThreads(){

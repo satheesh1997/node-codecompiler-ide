@@ -41,7 +41,7 @@
                 <% if(sendData.status == false) { %>
                 <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <strong>Server Error<br><br></strong> Alert body ...
+                    <strong>Server Error<br><br></strong> <%= sendData.error %>
                 </div>
                 <% } else {%>
                 <% if(dis.length == 0){ %>                
@@ -52,18 +52,18 @@
                 </div>
                 <% } else { %>
                     <% dis.forEach((discussion)=> { %>                        
-                        <div class="panel panel-default" style="border-top: 2px solid rebeccapurple;">
+                        <div class="panel panel-default" style="border-top: 2px solid rebeccapurple;cursor:pointer;" onclick='window.location="/discuss/view/<%= discussion._id %>"'>
                             <div class="panel-heading">
                                 <h3 class="panel-title"><%= discussion.title %></h3>
                             </div>
                             <div class="panel-body" style="padding:20px;line-height:30px;">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= discussion.body %> 
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= discussion.body.substring(0, 150) %>... 
                                     
                                     <p class="text-right text-primary">- <%= discussion.author %></p>
                             </div>
                             <div class="panel-footer" style="background: white;">
                                 <div class="text-right">
-                                    <a href="/discuss/view/<%= discussion._id %>">Post a solution</a> | 
+                                    <span class="text-grey"><%= discussion.posted_date.toString() %></span> | 
                                     <a href="/discuss/view/<%= discussion._id %>#solns"><%= discussion.comments.length %> Solutions</a>
                                 </div>
                             </div>

@@ -45,6 +45,12 @@
             </div>
         </div>
     </div>
-    
+    <div class="count-down text-right" id="count">1000</div>
 <% include layouts/javascripts %>
+    <script type="text/javascript">
+        $.get('/accounts/count', function(data, status){
+            var dt = ('0000'+ data).substring(data.length);
+            $("#count").html(dt);
+        });
+    </script>
 <% include layouts/footer %>

@@ -30,6 +30,13 @@ router.get('/accounts/login', (req, res, next)=>{
     res.render('login')
 })
 
+router.get('/accounts/count',(req, res, next)=>{
+    Student.count({}, (err, count)=>{
+        var newCount = count;
+        return res.send(newCount.toString());
+    })
+})
+
 router.post('/accounts/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/accounts/login?errorcode=10&date='+Date()+''
