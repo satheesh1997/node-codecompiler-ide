@@ -1,6 +1,6 @@
 <% include layouts/header %>
     <% include layouts/navbar %>
-    <div class="container-fluid top-2">
+    <div class="container-fluid top-2 hidden-print">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="panel panel-default">
@@ -98,7 +98,52 @@
             </div>
         </div>
     </div>
-
+    <div class="visible-print">
+        <h3> Output & Execution </h3>
+        <hr>
+        <h4>Testcase - 1</h4>
+        <hr/>
+        <h5>Input:</h5>
+        <p id="pt_1_i"></p>
+        <br>
+        <h5>Output:</h5>
+        <p id="pt_1_o"></p>
+        <br>
+        <h5>Result:</h5>
+        <p id="pt_1_r"></p>
+        <br>
+        <hr>
+        <h4>Testcase - 2</h4>
+        <hr/>
+        <h5>Input:</h5>
+        <p id="pt_2_i"></p>
+        <br>
+        <h5>Output:</h5>
+        <p id="pt_2_o"></p>
+        <br>
+        <h5>Result:</h5>
+        <p id="pt_2_r"></p>
+    </div>
 <% include layouts/javascripts %>
 <% include layouts/play-js %>
+<script>
+    $("#testcase_1").keyup(function(){
+        $("#pt_1_i").html($("#testcase_1").val().replace("\n","<br>"));
+    });
+    $("#o_1").keyup(function(){
+        $("#pt_1_o").html($("#o_1").val().replace("\n","<br>"));
+    });
+    $("#testcase_2").keyup(function(){
+        $("#pt_2_i").html($("#testcase_2").val().replace("\n","<br>"));
+    });
+    $("#o_2").keyup(function(){
+        $("#pt_2_o").html($("#o_2").val().replace("\n","<br>"));
+    });
+    $("body").on('DOMSubtreeModified', "#out_1", function() {
+        $("#pt_1_r").html($("#out_1").html());
+    });
+    $("body").on('DOMSubtreeModified', "#out_2", function() {
+        $("#pt_2_r").html($("#out_2").html());
+    });
+</script>
 <% include layouts/footer %>
