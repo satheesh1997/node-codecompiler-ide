@@ -1,13 +1,6 @@
 <% include layouts/header %>
 
     <div class="container-fluid welcome_container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-8 col-sm-offset-8 col-md-offset-8 text-right">
-                <div class="links">
-                    <a href=""><%= site.title %></a>
-                </div>
-            </div>
-        </div>
         <div class="row login">
             <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-4 col-sm-offset-4 col-md-offset-4">
                 <% if(query.errorcode == '10') { %>
@@ -17,19 +10,24 @@
                 </div>
                 <% } %>
                 <form action="/accounts/login" method="POST" role="form" class="login-form">
-                    <legend class="text-center">STUDENT'S LOGIN</legend>
-                
-                    <div class="form-group">
-                        <label for="">Register Number</label>
-                        <input type="text" class="form-control" name="username" placeholder="15TUCS215" onkeyup="return forceUpper(this);" required>
+                    <h2 class="text-center"><i class="glyphicon glyphicon-fire"></i></h2>
+                    <legend class="text-center">Welcome to CodeLordz</legend>
+                    <br>
+                    <div class="group">      
+                        <input type="text" required="" name="username" style="background: transparent;"  onkeyup="return forceUpper(this);" maxlength="9">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Register Number</label>
                     </div>
-
-                    <div class="form-group">
-                        <label for="">Password</label>
-                        <input type="password" class="form-control" name="password" minlength="8" placeholder="Must contain min 8 chars" required>
+                
+                    <div class="group">      
+                        <input type="password" required="" name="password" style="background: transparent;" minlength="8">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Password</label>
                     </div>
                     
-                    <br>
+                    <br><br>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Login</button>
                         <a class="btn btn-danger" href="/accounts/register">Register</a>
