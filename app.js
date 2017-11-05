@@ -6,7 +6,7 @@
 *    Organisation: Code Lordz
 *    Author: Satheesh Kumar D
 *    Date: 18-10-2017
-*    Code version: 0.0.1
+*    Code version: 1.0.2
 *    Git Repository: https://github.com/Code-Lordz/Code_Compiler
 *    Routes: 12
 *    Models: 2
