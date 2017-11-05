@@ -1,6 +1,6 @@
 {
   "name": "code_compiler",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This is a simple code that can be used in organizations. This uses simple hacker rank api for compiling your codes.",
   "main": "app.js",
   "scripts": {

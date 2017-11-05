@@ -3,7 +3,17 @@
         <script>
                 $("document").ready(function(){
                         $(".preloader").fadeOut(500);
+                        setInterval(updateNetworkIndicator, 500);
                 });
+                function updateNetworkIndicator(){
+                        var indicator = navigator.onLine ? 1 : 0;
+                        if(indicator == 1){
+                                $(".no_network").fadeOut(500);
+                        }
+                        else{
+                                $(".no_network").fadeIn(500);
+                        }
+                }
         </script>
         <!-- Bootstrap JavaScript -->
         <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

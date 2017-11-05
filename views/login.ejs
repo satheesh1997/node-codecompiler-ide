@@ -52,5 +52,9 @@
             var dt = ('0000'+ data).substring(data.length);
             $("#count").html(dt);
         });
+        $('form').submit(function(){
+            $("button[type='submit']").attr('disabled', 'disabled');
+            $("button[type='submit']").html('Logging in...');
+        });
     </script>
 <% include layouts/footer %>

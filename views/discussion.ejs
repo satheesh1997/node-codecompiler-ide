@@ -32,8 +32,18 @@
                         <br>
                         <button id="submit_soln" type="button" class="btn btn-success btn-sm" disabled>Add Solution</button>
                     </p>
-                    <h4><br>Solutions:</h4>
-                    <hr align="left" width="10%" />
+                <% } %>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-md-6 column">
+                <% if(sendData.discussion.comments.length != 0){ %>
+                <h4><br>Solutions:</h4>
+                <div id="solns">
+                <% sendData.discussion.comments.forEach((solution)=> { %>
+                <div class="discussion_solution">
+                    <span class="user"><%= solution.posted_by %>: </span><span class="msg"><%= solution.comment %></span>
+                </div>
+                <% }) %>
+                </div>
                 <% } %>
             </div>
         </div>

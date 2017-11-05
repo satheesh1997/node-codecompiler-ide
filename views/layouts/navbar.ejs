@@ -1,3 +1,11 @@
+<div class="preloader">
+    <div class="text-center icon">
+        <i class="glyphicon glyphicon-fire" style="font-size: 60px;"></i>
+        <div class="loading center">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+</div>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -17,7 +25,7 @@
             <li><a href="/playground" style="color:white;"><i class="glyphicon glyphicon-console"></i> Playground</a></li>
             <li><a href="/discuss" style="color:white;"><i class="glyphicon glyphicon-bell"></i> Discuss</a></li>
             <li><a data-toggle="modal" href="#languages-list" style="color:white;"><i class="glyphicon glyphicon-tasks"></i> Languages</a></li>
-            <li><a data-toggle="modal" href="#dev_team" style="color:white;"><i class="glyphicon glyphicon-fire"></i> Developers</a></li>
+            <li><a data-toggle="modal" href="#dev_team" style="color:white;"><i class="glyphicon glyphicon-fire"></i> About</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#" style="color:white;"><i class="glyphicon glyphicon-user"></i> <%= user.username %></a></li>
@@ -61,37 +69,24 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Developers</h4>
+                <h4 class="modal-title text-warning">Changelog</h4>
             </div>
             <div class="modal-body">
-                <div class="col-lg-6 col-md-6 text-center">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center" style="padding: 0;margin: 0;">
-                            <img src="/compiler_components/images/dev_1.jpg" style="width: 250px;height:250px;">
-                        </div>
-                        <div class="panel-footer text-center">
-                            Satheesh Kumar D<br><br>III CSE-C
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center" style="padding: 0;margin: 0;">
-                            <img src="/compiler_components/images/dev_2.jpg" style="width: 250px;height:250px;">
-                        </div>
-                        <div class="panel-footer text-center">
-                            Somesh Kumar K<br><br>III CSE-C
-                        </div>
-                    </div>
-                </div>
-                <br><br>
-                <p class="text-center">
-                	Contact us for reporting errors or bugs.<br>
-                	Need to join this team-> Meet us.
-                </p>
+                <h4 class="text-center text-danger"><marquee><i class="glyphicon glyphicon-star"></i> Developed by Code Lordz <i class="glyphicon glyphicon-star"></i></marquee></h4>
+                <h4 class="text-center text-primary"><span style="cursor:pointer;" onclick='window.open("http://codelordz.github.io","_blank")'>WEBSITE</span></h5>
+                <h5 class="text-center text-success"><i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i> <i class="glyphicon glyphicon-heart"></i><br><br></h5>
+                <h4><br>Version: 1.0.2<br><small>05/11/2017</small></h4><hr>
+                <h5><i class="glyphicon glyphicon-hand-right"></i> Added save code in playground.</h5>
+                <h5><i class="glyphicon glyphicon-hand-right"></i> Added reset code that shows the last saved code in playground.</h5>
+                <h5><i class="glyphicon glyphicon-hand-right"></i> You can now start discussions.</h5>
+                <h5><i class="glyphicon glyphicon-hand-right"></i> You can now add solutions to the discussion.</h5>
+                <h5><i class="glyphicon glyphicon-hand-right"></i> Preloader added to authenticated pages.</h5>
+                <h5><i class="glyphicon glyphicon-hand-right"></i> Alert users when network connection fails.</h5>
+                <h5><i class="glyphicon glyphicon-hand-right"></i> Fixed some minor bugs and reduced loading time.</h5>
+                <h5 class="text-warning text-right"><br><i class="glyphicon glyphicon-alert"></i> Find any bugs contact: +91-9597264229.</h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

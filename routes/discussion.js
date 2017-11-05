@@ -50,6 +50,31 @@ router.get('/view/:id' ,allowAuthenticated, (req, res, next)=>{
     })
 })
 
+router.post('/addsolution', allowAuthenticated, (req, res, next)=>{
+    var data = {
+        id: req.body.discuss,
+        solution: req.body.solution
+    }
+    discussion.findOne({_id: data.id}, (err, discus)=>{
+        if(err){
+            data.status = false
+            data.error = 'Error while adding solution to the discussion. Kindly contact the administrator!'
+        }
+        else{
+            var solution = {
+                posted_by: req.user.username,
+                comment: data.solution
+            }
+            console.log(discus)
+            discus.comments.push(solution)
+            discus.save()
+            data.status = true
+        }
+        return res.json(data)
+    })
+    
+})
+
 router.post('/add', allowAuthenticated, (req, res, next)=>{
     var data = {
         author: req.user.username,

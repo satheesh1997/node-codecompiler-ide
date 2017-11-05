@@ -8,6 +8,7 @@
     Organisation: Code Lordz
 
 */
+var interval;
 
 $('document').ready(function(){
     $('#title').keydown(function(){
@@ -61,14 +62,45 @@ $('document').ready(function(){
     $("#solution").keydown(function(){
         var solution = $("#solution").val();
         if(solution.length > 10 && solution.length < 200){
-            $("#submit_soln").removeAttr('disabled')
+            $("#submit_soln").removeAttr('disabled');
         }
         else{
             $("#submit_soln").attr('disabled', 'disabled');
         }
     });
+    $("#submit_soln").click(function(){
+        $("#submit_soln").html("Submitting....");
+        $("#submit_soln").attr('disabled', 'disabled');
+        var discussion = $("#solution").attr('discussion');
+        var solution = $("#solution").val();
+        var req_url = '/discuss/addsolution';
+        var data = {
+            discuss: discussion,
+            solution: solution
+        };
+        $.post(req_url, data, function(data, status, jqXHR){
+            console.log('AddSolution Request Status: '+status);
+        });
+        interval = setInterval(openButton, 1000);
+    });
 });
 
+var count_for_discuss = 50;
+
+function openButton(){
+    if(count_for_discuss < 0){
+        $("#submit_soln").html("Add Solution");
+        $("#submit_soln").removeAttr('disabled');
+        count_for_discuss = 50;
+        clearInterval(interval);
+        window.location.reload();
+    }
+    else{
+        $("#submit_soln").html("Wait ("+count_for_discuss+")"+ " secs");
+        $("#solution").val("");
+        count_for_discuss--;
+    }
+}
 function openMyThreads(){
     window.location.assign("/discuss/my");
 }
